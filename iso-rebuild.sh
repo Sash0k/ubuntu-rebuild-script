@@ -61,6 +61,17 @@ umount /mnt/loop
 
 # копирование resolv.conf и чрут
 cp /etc/resolv.conf $sourcedir/etc/
+
+# обновление пакетов
+echo
+printf "Sync packages with apt-get? [y/N] " 
+read answer
+if [ "$answer"  = "y"  ]
+ then
+  echo "Sync package lists..."
+  chroot $sourcedir apt-get update
+  chroot $sourcedir apt-get -y upgrade
+fi
 echo
 echo "Entering chroot..."
 echo "Customize your system. Type 'exit' to leave chroot and make image."
