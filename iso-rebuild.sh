@@ -80,8 +80,9 @@ chroot $sourcedir
 # удаление ненужных файлов
 echo
 echo "Cleaning..."
-rm $sourcedir/etc/resolv.conf
 rm $sourcedir/var/cache/apt/archives/*.deb
+rm $sourcedir/etc/resolv.conf
+chroot $sourcedir ln -s /run/resolvconf/resolv.conf /etc/resolv.conf
 
 echo
 echo "Pack image..."
