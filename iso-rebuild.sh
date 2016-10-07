@@ -106,7 +106,7 @@ rm /tmp/sedscript
 printf $(du -sx --block-size=1 $sourcedir | cut -f1) > $builddir/casper/filesystem.size
 
 # создание  filesystem.squashfs
-mksquashfs $sourcedir $builddir/casper/filesystem.squashfs -noappend
+mksquashfs $sourcedir $builddir/casper/filesystem.squashfs -comp xz -noappend
 
 # создание  md5sum.txt
 cd $builddir && find . -type f -print0 | xargs -0 md5sum > md5sum.txt
