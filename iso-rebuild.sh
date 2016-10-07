@@ -112,7 +112,7 @@ cd $builddir && find . -type f -print0 | xargs -0 md5sum > md5sum.txt
 cd ..
 
 # создание  iso-образа системы
-mkisofs -r -V "runtu-remix-`date +%Y%m%d `" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o `date +%Y%m%d-%H%M%S`.iso $builddir
+mkisofs -r -V "ubuntu-remix-`date +%Y%m%d `" -cache-inodes -J -l -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o `date +%Y%m%d-%H%M%S`.iso $builddir
 
 # удаление временных файлов
 echo
